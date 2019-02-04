@@ -34,7 +34,9 @@
         <activity android:name=".Profile" />
         <activity android:name=".FindJob" />
         <activity android:name=".SelectEmployee" />
-        <activity android:name=".profile1"></activity>
+        <activity android:name=".profile1" />
+        <activity android:name=".Chat.ChatActivity" />
+        <activity android:name=".Chat.EmployersActivity"></activity>
     </application>
 
 </manifest>

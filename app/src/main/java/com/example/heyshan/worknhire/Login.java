@@ -1,6 +1,7 @@
 package com.example.heyshan.worknhire;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -134,6 +135,13 @@ public class Login extends AppCompatActivity {
                                 resfirstname=student.getString("fname");
                                 reslastname=student.getString("lname");
                                 resContact=student.getString("mobileno");
+                                SharedPreferences sharedPref = getSharedPreferences(
+                                        "spName", Context.MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedPref.edit();
+                                editor.putString("id", student.getString("_id"));
+                                editor.putString("senderName", resfirstname);
+                                Toast.makeText(Login.this, student.getString("_id"), Toast.LENGTH_SHORT).show();
+                                editor.commit();
                             }
 
                             if(personType.equals("Employee")) {
@@ -143,6 +151,13 @@ public class Login extends AppCompatActivity {
                                 reslastname = student.getString("lname");
                                 resContact = student.getString("mobileno");
                                 resWorktype = student.getString("worktype");
+                                SharedPreferences sharedPref = getSharedPreferences(
+                                        "spName", Context.MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedPref.edit();
+                                editor.putString("id", student.getString("_id"));
+                                editor.putString("senderName", resfirstname);
+                                Toast.makeText(Login.this, student.getString("_id"), Toast.LENGTH_SHORT).show();
+                                editor.commit();
                             }
 
 

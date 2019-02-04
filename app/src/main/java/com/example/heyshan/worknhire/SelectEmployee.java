@@ -32,6 +32,7 @@ public class SelectEmployee extends AppCompatActivity implements ExampleAdapter.
     String workerMobile;
     String workerType;
     String workerEmail;
+    String workerId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,11 +62,13 @@ public class SelectEmployee extends AppCompatActivity implements ExampleAdapter.
                             for(int i=0;i<jsonArray.length();i++){
                                 JSONObject emp=jsonArray.getJSONObject(i);
 
+                                Toast.makeText(SelectEmployee.this, emp.toString(), Toast.LENGTH_LONG).show();
                                  workerFName=emp.getString("fname");
                                  workerLName=emp.getString("lname");
                                  workerMobile=emp.getString("mobileno");
                                  workerType=emp.getString("worktype");
                                  workerEmail=emp.getString("email");
+                                 workerId = emp.getString("_id");
 
                                 mExampleList.add(new ExampleItem(workerFName,workerEmail));
                             }
@@ -97,6 +100,7 @@ public class SelectEmployee extends AppCompatActivity implements ExampleAdapter.
         profileIntent.putExtra("email",workerEmail);
         profileIntent.putExtra("phoneno",workerMobile);
         profileIntent.putExtra("worktype", workerType);
+        profileIntent.putExtra("workerId", workerId);
         startActivity(profileIntent);
     }
 }
